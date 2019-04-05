@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>app01下面的登录页面</title>
+</head>
+<body>
+{# 填好的表单，提交到login：写的action="/login/" ,method方式是post#}
+{# action="{% url "login" %}，使url的名字关联到urls的路径里设置的path('web_login/',views.login,name='login'),的web_login #}
+{# 如果web_login这个正则表达式名称改成其他的，则此处的action在网页里自动改换#}
+<form action="{% url "login" %}" method="post">
+    <h1>我是app01的登录页面</h1>
+    <p>用户名：<input type="text" name="uname"></p>
+    <p>密码：<input type="password" name="upwd"></p>
+    <p><input type="submit" value="提交"></p>
+</form>
+{# 此处的{% url "blog_list" 2018 12 %}代表调用路径里的blog_list的正则表达式格式；此处在网页显示/blog/2018/12/ #}
+{#<p>{% url "blog_list" 2118 12 %}</p>#}
+{# 如果换成year month，则需在views的函数里传进去参数 #}
+<p>{% url "blog_list" year month %}</p>
+</body>
+</html>
